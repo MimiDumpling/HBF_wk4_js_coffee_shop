@@ -50,6 +50,7 @@
 
     var myImage = document.getElementById("coffee-image");
     var myRevenueMessage = document.getElementById("revenue");
+    var drinksOrdered = []
 
     myImage.setAttribute('src', 'static/coffee_beans.jpg')
 
@@ -67,13 +68,17 @@
         myImage.setAttribute('src', 'static/coffee_beans.jpg');
     }
 
-    function allTheCoffee() {
+    function allTheCoffee(drinkType) {
+        drinksOrdered.push(drinkType);
         makeCoffee();
         setTimeout(drinkCoffee, 1500);
         setTimeout(coffeeBeans, 4000);
+        console.log(drinksOrdered);
     }
 
-    myImage.addEventListener('click', allTheCoffee);
+    myImage.addEventListener('click', function (){
+        allTheCoffee("Brew");
+    });
     // use this JavaScript object in further study step
 
     var prices = {
